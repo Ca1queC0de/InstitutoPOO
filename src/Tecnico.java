@@ -2,6 +2,10 @@ package br.edu.ifs.academico;
 
 public class Tecnico extends Pessoa {
 
+	public Tecnico(String nome) {
+		super(nome);
+	}
+	
 	private String profissao;
 	private String laboratorio;
 	private int sala;

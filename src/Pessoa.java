@@ -9,6 +9,11 @@ public class Pessoa {
 	private String endereco;
 	private int idade;
 	private char sexo;
+
+  public Pessoa(String nome) {
+    super(nome);
+    this.setNome();
+  }
 	
 	//getters and setters
 	public String getNome() {

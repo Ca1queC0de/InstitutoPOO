@@ -2,6 +2,10 @@ package br.edu.ifs.academico;
 
 public class Merendeira extends Pessoa {
 
+	public Merendeira(String nome) {
+		super(nome);
+	}
+	
 	private String especialidade;
 	private String vulgo;
 	

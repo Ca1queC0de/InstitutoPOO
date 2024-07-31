@@ -2,6 +2,10 @@ package br.edu.ifs.academico;
 
 public class Aluno extends Pessoa {
 
+	public Aluno(String nome) {
+		super(nome);
+	}
+	
 	private double nota1;
 	private double nota2;
 	

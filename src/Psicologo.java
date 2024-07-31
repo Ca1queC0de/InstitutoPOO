@@ -2,6 +2,10 @@ package br.edu.ifs.academico;
 
 public class Psicologo extends Pessoa {
 
+	public Psicologo(String nome) {
+		super(nome);
+	}
+	
 	private String crp;
 	private String especialidade;
 	private String alocacao;

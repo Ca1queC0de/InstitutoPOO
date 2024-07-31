@@ -2,6 +2,10 @@ package br.edu.ifs.academico;
 
 public class Pedagogo extends Pessoa {
 
+	public Pedagogo(String nome) {
+		super(nome);
+	}
+	
 	private String experiencia;
 	private String faixaClasse;
 	

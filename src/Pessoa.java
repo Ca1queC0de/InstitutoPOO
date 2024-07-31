@@ -9,11 +9,10 @@ public class Pessoa {
 	private String endereco;
 	private int idade;
 	private char sexo;
-
-  public Pessoa(String nome) {
-    super(nome);
-    this.setNome();
-  }
+	
+	public Pessoa(String nome) {
+		this.setNome(nome);
+	}
 	
 	//getters and setters
 	public String getNome() {

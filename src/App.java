@@ -1,16 +1,32 @@
 package br.edu.ifs.academico;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
+	
+	static Scanner scanner = new Scanner(System.in);
+
+	static String nome;
+	static char sexo;
+	static String dataNascimento;
+	static String localNascimento;
+	static String curso;
+	static String formacao;
+	static String periodoAtual;
+	static String instituicaoVinculada;
 
 	public static void main(String[] args) {
 		
-		Scanner scanner = new Scanner(System.in);
-
-		Pessoa p = new Pessoa(null);
-		Menu menu = new Menu();
+		ArrayList<Aluno> alunos = new ArrayList<Aluno>();
+		ArrayList<Professor> professores = new ArrayList<Professor>();
+		ArrayList<Tecnico> tecnicos = new ArrayList<Tecnico>();
+		ArrayList<Psicologo> psicologos = new ArrayList<Psicologo>();
+		ArrayList<Pedagogo> pedagogos = new ArrayList<Pedagogo>();
+		ArrayList<Vigilante> vigilantes = new ArrayList<Vigilante>();
+		ArrayList<Merendeira> merendeiras = new ArrayList<Merendeira>();
 		
+		Menu menu = new Menu();
 		menu.imprimirMenu();
 		
 		int opcao = scanner.nextInt();
@@ -19,7 +35,8 @@ public class App {
 			
 			switch (opcao) {
 			case 1:
-				System.out.println("Cadastrando Aluno...\n");
+				System.out.println("Cadastrando Aluno: ");
+				cadastrarAluno(alunos);
 				break;
 			case 2:
 				System.out.println("Imprimindo Lista Alunos...\n");
@@ -69,6 +86,25 @@ public class App {
 			opcao = scanner.nextInt();
 		}
 		
+	}
+	
+	private static void cadastrarAluno(ArrayList<Aluno> alunos) {
+		System.out.print("Nome do Aluno: ");
+		nome = scanner.next();
+		System.out.print("Curso: ");
+		System.out.print("Sexo: ");
+		sexo = scanner.next().toUpperCase().charAt(0);
+		System.out.print("Local de Nascimento: ");
+		localNascimento = scanner.next();
+		System.out.print("Data de Nascimento: ");
+		dataNascimento = scanner.next();
+		/*System.out.print("Nota 1: ");
+		nota1 = scanner.nextInt();
+		System.out.print("Nota 2: ");
+		
+		Aluno aluno = new Aluno(nome) {
+			aluno.set
+		}*/
 		
 	}
 

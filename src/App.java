@@ -1,35 +1,27 @@
 package br.edu.ifs.academico;
 
+import java.util.ArrayList;
 import java.util.Scanner;
 
 public class App {
 
+	static String nome;
+	static String localNascimento;
+	static String dataNascimento;
+	static char sexo;
+
 	public static void main(String[] args) {
-		
-		String nome;
-		String localNascimento;
-		String dataNascimento;
-		char sexo;
-		
-		Aluno[] listaAluno = new Aluno[10];
-		Merendeira[] listaMerendeira = new Merendeira[10];
-		Pedagogo[] listaPedagogo = new Pedagogo[10];
-		Professor[] listaProfessor = new Professor[10];
-		Psicologo[] listaPsicologo = new Psicologo[10];
-		Tecnico[] listaTecnico = new Tecnico[10];
-		Vigilante[] listaVigilante = new Vigilante[10];
-		
-		int contAluno = 0;
-		int contMerendeira = 0;
-		int contPedagogo = 0;
-		int contProfessor = 0;
-		int contPsicologo = 0;
-		int contTecnico = 0;
-		int contVigilante = 0;
+
+		ArrayList<Aluno> listaAluno = new ArrayList<Aluno>();
+		ArrayList<Merendeira> listaMerendeira = new ArrayList<Merendeira>();
+		ArrayList<Pedagogo> listaPedagogo = new ArrayList<Pedagogo>();
+		ArrayList<Professor> listaProfessor = new ArrayList<Professor>();
+		ArrayList<Psicologo> listaPsicologo = new ArrayList<Psicologo>();
+		ArrayList<Tecnico> listaTecnico = new ArrayList<Tecnico>();
+		ArrayList<Vigilante> listaVigilante = new ArrayList<Vigilante>();
 		
 		Scanner scanner = new Scanner(System.in);
 
-		Pessoa p = new Pessoa(null);
 		Menu menu = new Menu();
 		
 		menu.imprimirMenu();
@@ -43,15 +35,23 @@ public class App {
 				System.out.println("Cadastrando Aluno...");
 				System.out.print("Nome do aluno: ");
 				nome = scanner.next();
-				Aluno aluno = new Aluno(nome);
 				System.out.print("Local de Nascimento: ");
 				localNascimento = scanner.next();
-				aluno.setLocalNascimento(localNascimento);
 				System.out.print("Sexo: ");
 				sexo = scanner.next().toUpperCase().charAt(0);
+				System.out.print("Nota 1: ");
+				double nota1 = scanner.nextDouble();
+				System.out.print("Nota 2: ");
+				double nota2 = scanner.nextDouble();
+
+				Aluno aluno = new Aluno(nome);
+
+				aluno.setLocalNascimento(localNascimento);
 				aluno.setSexo(sexo);
-				listaAluno[contAluno] = aluno;
-				contAluno++;
+				aluno.setNota1(nota1);
+				aluno.setNota2(nota2);
+
+				listaAluno.add(aluno);
 				break;
 			case 2:
 				System.out.println("Imprimindo Lista Alunos...\n");
@@ -60,15 +60,20 @@ public class App {
 				System.out.println("Cadastrando Professor...");
 				System.out.print("Nome do professor: ");
 				nome = scanner.next();
-				Professor professor = new Professor(nome);
 				System.out.print("Local de Nascimento: ");
 				localNascimento = scanner.next();
-				professor.setLocalNascimento(localNascimento);
 				System.out.print("Sexo: ");
 				sexo = scanner.next().toUpperCase().charAt(0);
+				System.out.print("Fomação: ");
+				String formacao = scanner.next();
+				
+				Professor professor = new Professor(nome);
+
+				professor.setLocalNascimento(localNascimento);
 				professor.setSexo(sexo);
-				listaProfessor[contProfessor] = professor;
-				contProfessor++;
+				professor.setFormacao(formacao);
+
+				listaProfessor.add(professor);
 				break;
 			case 4:
 				System.out.println("Imprimindo Lista Professores...\n");
@@ -77,15 +82,26 @@ public class App {
 				System.out.println("Cadastrando Técnico...\n");
 				System.out.print("Nome do Técnico: ");
 				nome = scanner.next();
-				Tecnico tecnico = new Tecnico(nome);
 				System.out.print("Local de Nascimento: ");
 				localNascimento = scanner.next();
-				tecnico.setLocalNascimento(localNascimento);
 				System.out.print("Sexo: ");
 				sexo = scanner.next().toUpperCase().charAt(0);
+				System.out.print("Profissão: ");
+				String profissao = scanner.next();
+				System.out.print("Laboratório: ");
+				String laboratorio = scanner.next();
+				System.out.print("Sala: ");
+				int sala = scanner.nextInt();
+
+				Tecnico tecnico = new Tecnico(nome);
+
+				tecnico.setLocalNascimento(localNascimento);
 				tecnico.setSexo(sexo);
-				listaTecnico[contTecnico] = tecnico;
-				contTecnico++;
+				tecnico.setProfissao(profissao);
+				tecnico.setLaboratorio(laboratorio);
+				tecnico.setSala(sala);
+
+				listaTecnico.add(tecnico);
 				break;
 			case 6:
 				System.out.println("Imprimindo Lista Técnicos...\n");
@@ -94,15 +110,23 @@ public class App {
 				System.out.println("Cadastrando Pedagogo...");
 				System.out.print("Nome do Pedagogo: ");
 				nome = scanner.next();
-				Pedagogo pedagogo = new Pedagogo(nome);
 				System.out.print("Local de Nascimento: ");
 				localNascimento = scanner.next();
-				pedagogo.setLocalNascimento(localNascimento);
 				System.out.print("Sexo: ");
 				sexo = scanner.next().toUpperCase().charAt(0);
+				System.out.print("Experiência: ");
+				String experiencia = scanner.next();
+				System.out.print("Faixa da Classe: ");
+				String faixaClasse = scanner.next();
+
+				Pedagogo pedagogo = new Pedagogo(nome);
+
+				pedagogo.setLocalNascimento(localNascimento);
 				pedagogo.setSexo(sexo);
-				listaPedagogo[contPedagogo] = pedagogo;
-				contPedagogo++;
+				pedagogo.setExperiencia(experiencia);
+				pedagogo.setFaixaClasse(faixaClasse);
+
+				listaPedagogo.add(pedagogo);
 				break;
 			case 8:
 				System.out.println("Imprimindo Lista Pedagogos...\n");
@@ -111,15 +135,26 @@ public class App {
 				System.out.println("Cadastrando Psicólogo...");
 				System.out.print("Nome do Psicólogo: ");
 				nome = scanner.next();
-				Psicologo psicologo = new Psicologo(nome);
 				System.out.print("Local de Nascimento: ");
 				localNascimento = scanner.next();
-				psicologo.setLocalNascimento(localNascimento);
 				System.out.print("Sexo: ");
 				sexo = scanner.next().toUpperCase().charAt(0);
+				System.out.print("CRP: ");
+				String crp = scanner.next();
+				System.out.print("Especialidade: ");
+				String especialidade = scanner.next();
+				System.out.print("Alocação: ");
+				String alocacao = scanner.next();
+
+				Psicologo psicologo = new Psicologo(nome);
+
+				psicologo.setLocalNascimento(localNascimento);
 				psicologo.setSexo(sexo);
-				listaPsicologo[contPsicologo] = psicologo;
-				contPsicologo++;
+				psicologo.setCrp(crp);
+				psicologo.setEspecialidade(especialidade);
+				psicologo.setAlocacao(alocacao);
+
+				listaPsicologo.add(psicologo);
 				break;
 			case 10:
 				System.out.println("Imprimindo Lista Psicólogos...\n");
@@ -128,15 +163,23 @@ public class App {
 				System.out.println("Cadastrando Merendeira...");
 				System.out.print("Nome da Merendeira: ");
 				nome = scanner.next();
-				Merendeira merendeira = new Merendeira(nome);
 				System.out.print("Local de Nascimento: ");
 				localNascimento = scanner.next();
-				merendeira.setLocalNascimento(localNascimento);
 				System.out.print("Sexo: ");
 				sexo = scanner.next().toUpperCase().charAt(0);
+				System.out.print("Especialidade: ");
+				String especialidadePrato = scanner.next();
+				System.out.println("Vulgo: ");
+				String vulgo = scanner.next();
+
+				Merendeira merendeira = new Merendeira(nome);
+
+				merendeira.setLocalNascimento(localNascimento);
 				merendeira.setSexo(sexo);
-				listaMerendeira[contMerendeira] = merendeira;
-				contMerendeira++;
+				merendeira.setEspecialidadePrato(especialidadePrato);
+				merendeira.setVulgo(vulgo);
+
+				listaMerendeira.add(merendeira);
 				break;
 			case 12:
 				System.out.println("Imprimindo Lista Merendeiras...\n");
@@ -145,15 +188,23 @@ public class App {
 				System.out.println("Cadastrando Vigilante...");
 				System.out.print("Nome do Vigilante: ");
 				nome = scanner.next();
-				Vigilante vigilante = new Vigilante(nome);
 				System.out.print("Local de Nascimento: ");
 				localNascimento = scanner.next();
-				vigilante.setLocalNascimento(localNascimento);
 				System.out.print("Sexo: ");
 				sexo = scanner.next().toUpperCase().charAt(0);
+				System.out.print("Está armado? ");
+				boolean armado = scanner.nextBoolean();
+				System.out.print("Horário de trabalho: ");
+				String horario = scanner.next();
+
+				Vigilante vigilante = new Vigilante(nome);
+
+				vigilante.setLocalNascimento(localNascimento);
 				vigilante.setSexo(sexo);
-				listaVigilante[contVigilante] = vigilante;
-				contVigilante++;
+				vigilante.setArmado(armado);
+				vigilante.setHorario(horario);
+
+				listaVigilante.add(vigilante);
 				break;
 			case 14:
 				System.out.println("Imprimindo Lista Vigilantes...\n");
@@ -167,6 +218,7 @@ public class App {
 			opcao = scanner.nextInt();
 		}
 		
+		System.out.println("\nSaindo...");
 		
 	}
 
